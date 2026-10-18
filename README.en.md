@@ -1,6 +1,6 @@
 # Markdown Office – Set `memo`
 
-**Version:** 26.10.3 · [Deutsch](README.md)
+**Version:** 26.10.4 · [Deutsch](README.md)
 
 > The default template set of Markdown Office: the former rf-doc layout of real-fast-document.
 
