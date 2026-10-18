@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [26.10.3] - 2026-10-18
+
+### Changed
+- Table rows slightly tighter (cell padding 7pt → 5pt)
+
 ## [26.10.2] - 2026-10-18
 
 ### Changed

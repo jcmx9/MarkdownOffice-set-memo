@@ -18,7 +18,8 @@
 #let horizontalrule = align(center, line(start: (25%, 0%), end: (75%, 0%)))
 
 
-#set table(inset: (x: 5pt, y: 7pt), stroke: none)
+// Zeilen etwas enger: vertikaler Zellabstand 5 pt (vorher 7 pt), x unverändert.
+#set table(inset: (x: 5pt, y: 5pt), stroke: none)
 // Gemeinsame Tabellen-Gestaltung (allgemeine Tabellen + Aufgabentabelle):
 // leichtes Zebra ab der 1. Datenzeile, senkrechte Trennlinien innen, eine Linie
 // unter der Kopfzeile. Die fill-Funktion ist zugleich der Rekursions-Guard der
@@ -34,7 +35,8 @@
 // Breite, Flattersatz (Blocksatz reißt in schmalen Zellen Lücken).
 #let table-text = (size: 9pt, weight: 500, tracking: -0.02em, hyphenate: false,
   number-type: "lining", number-width: "tabular")
-#let cell-inset = (x: 5pt, y: 7pt)
+// Zeilen etwas enger: y = 5 pt (vorher 7 pt).
+#let cell-inset = (x: 5pt, y: 5pt)
 
 // Allgemeine Tabellen (aus Markdown): Spaltenbreiten macht Typst selbst
 // (auto-Spalten) – jede Spalte so breit wie ihr Inhalt; passt die Tabelle nicht,
