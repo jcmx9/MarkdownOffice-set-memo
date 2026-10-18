@@ -123,7 +123,7 @@
 #let attach-path = sys.inputs.at("attach", default: "")
 // Frontmatter-gesteuert (von build.sh/convert.ps1 aus dem YAML-Block gereicht):
 #let date-raw   = sys.inputs.at("date", default: "")       // ISO, T.M.JJJJ oder Freitext
-#let client-text   = sys.inputs.at("client", default: "")
+#let toptitle-text = sys.inputs.at("toptitle", default: "")
 #let subtitle-text = sys.inputs.at("subtitle", default: "")
 #let author-text   = sys.inputs.at("author", default: "")
 #let toc-mode   = sys.inputs.at("toc", default: "auto")    // "true" | "false" | "auto"
@@ -176,7 +176,7 @@
 // ein Datum (date: none bricht den Export ab), aber build.sh setzt dann
 // SOURCE_DATE_EPOCH aus der Quell-mtime, sodass auch auto stabil statt "jetzt" ist.
 // Weitere Metadaten: Autor(en) nur aus author: (sonst leer), Thema (Subject)
-// = Titel aus title: (sonst leer), Stichwörter: Kunde und das erzeugende
+// = Titel aus title: (sonst leer), Stichwörter: Toptitel und das erzeugende
 // Werkzeug mit Version. Das
 // Creator-Feld schreibt Typst selbst („Typst 0.15.0“) und lässt sich nicht
 // ändern – Markdown Office steht deshalb in den Stichwörtern.
@@ -186,7 +186,7 @@
   date: if date-parsed == none { auto } else { date-parsed },
   author: author-text.split(",").map(a => a.trim()).filter(a => a != ""),
   description: if title-text != "" { title-text } else { none },
-  keywords: (if client-text != "" { (client-text,) } else { () }) + ("Markdown Office " + mdo-version,),
+  keywords: (if toptitle-text != "" { (toptitle-text,) } else { () }) + ("Markdown Office " + mdo-version,),
 )
 
 // PDF/A-3b erlaubt eingebettete Dateien: Original-Markdown als Anhang beilegen.
@@ -340,13 +340,13 @@
 // ---------------------------------------------------------------------------
 // Fußzeile: Trennlinie darüber. Ohne Datum 2-spaltig (Name | Seite x/y),
 // mit Datum 3-spaltig (Name | Seite x/y mittig | Datum).
-// Links steht der Dateiname – oder, sobald client: oder subtitle: gesetzt ist,
-// höchstens zwei Angaben aus Kunde, Titel, Untertitel in dieser Reihenfolge
-// ("Kunde · Titel", ohne Kunde "Titel · Untertitel"). print_filename:false
+// Links steht der Dateiname – oder, sobald toptitle: oder subtitle: gesetzt ist,
+// höchstens zwei Angaben aus Toptitel, Titel, Untertitel in dieser Reihenfolge
+// ("Toptitel · Titel", ohne Toptitel "Titel · Untertitel"). print_filename:false
 // blendet die linke Angabe aus.
 // ---------------------------------------------------------------------------
-#let footer-left = if client-text != "" or subtitle-text != "" {
-  let parts = (client-text, title-text, subtitle-text).filter(p => p != "")
+#let footer-left = if toptitle-text != "" or subtitle-text != "" {
+  let parts = (toptitle-text, title-text, subtitle-text).filter(p => p != "")
   parts.slice(0, calc.min(2, parts.len())).join(" · ")
 } else { doc-filename }
 
@@ -372,7 +372,7 @@
   line(length: 100%, stroke: rule-stroke)
   v(2pt)
   set text(font: body-font, size: 9pt, fill: head-color, number-type: "lining")
-  // Fester Abstand zwischen den Spalten; ein langer Name (Kunde · Titel) wird
+  // Fester Abstand zwischen den Spalten; ein langer Name (Toptitel · Titel) wird
   // in seiner Spalte auf eine Zeile gekürzt („…“), statt umzubrechen oder bis
   // an die Seitenzahl zu laufen.
   set par(justify: false)
@@ -802,17 +802,17 @@
 
 // Titelblock + optionales Inhaltsverzeichnis, VOR dem Markdown-Body. Der Titel
 // ist KEIN Heading (steht daher nicht im TOC); H1 ist ein Kapitel.
-// Aufbau (mittig, jeweils nur was gesetzt ist): Kunde klein und gesperrt über
+// Aufbau (mittig, jeweils nur was gesetzt ist): Toptitel klein und gesperrt über
 // dem Titel, Titel, Untertitel, darunter "Datum · Autor".
 #let meta-line = (date-display, if author-text != "" { author-text }).filter(p => p != none)
-#if (client-text, title-text, subtitle-text, author-text).any(p => p != "") {
-  // Abstände zwischen Kunde, Titel, Untertitel und Datum/Autor großzügig genug,
+#if (toptitle-text, title-text, subtitle-text, author-text).any(p => p != "") {
+  // Abstände zwischen Toptitel, Titel, Untertitel und Datum/Autor großzügig genug,
   // dass die Zeilen nicht aneinanderkleben (em = Fließtextgröße 10 pt).
   block(width: 100%, above: 0.2em, below: 1.6em, align(center, {
     set par(justify: false)
-    if client-text != "" {
+    if toptitle-text != "" {
       block(below: 1.0em, text(font: body-font, size: 9pt, tracking: 0.12em, fill: head-color,
-        upper(client-text)))
+        upper(toptitle-text)))
     }
     if title-text != "" {
       block(below: 0.9em, heading-text(16pt, weight-heading, title-text))

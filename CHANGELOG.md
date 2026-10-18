@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [26.10.4] - 2026-10-18
+
+### Changed
+- **Breaking:** the front-matter key `client:` is renamed to `toptitle:` (Typst input `toptitle`, needs Markdown Office ≥ 26.10.0); rename it in existing notes. The text small above the title, in the footer and in the PDF keywords now comes from `toptitle:`
+
 ## [26.10.3] - 2026-10-18
 
 ### Changed

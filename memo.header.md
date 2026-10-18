@@ -3,7 +3,7 @@
 template: memo          # Vorlagen-Set oder .typ-Datei
 title: ""               # Titelblock, Kopfzeile, PDF-Titel
 subtitle: ""            # unter dem Titel
-client: ""              # klein über dem Titel
+toptitle: ""            # klein über dem Titel
 author: ""              # „Datum · Autor“; mehrere: [Anna, Ben]
 date: ""                # 2026-10-13 oder 13.10.2026; leer: kein Datum
 isodate_praefix: true   # ISO-Datum vor dem Dateinamen
