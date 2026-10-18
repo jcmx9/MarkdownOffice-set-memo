@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [26.10.2] - 2026-10-18
+
+### Changed
+- External links (`http://`, `https://`, `mailto:`) are marked in the PDF: link text in the normal text colour with a fine underline and a small raised ↗ inside the link; internal links stay unchanged, the running header and the table of contents show such links as plain text
+
 ## [26.10.1] - 2026-10-18
 
 ### Changed

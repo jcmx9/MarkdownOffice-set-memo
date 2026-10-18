@@ -285,6 +285,9 @@
   }
   // Kopf-Text: Sans (nicht Serif wie die Überschriften), 13pt, ohne grafisches
   // Element. Kopf und Fuß bleiben bewusst serifenlos.
+  // Ein Link im Kapiteltitel erscheint im Kopf als schlichter Text (ohne
+  // Unterstreichung und ↗): der Kopf ist "Chrome", kein Verweis.
+  show link: l => l.body
   let chapter = text(font: body-font, weight: weight-text, size: 11pt, fill: head-color,
     number-type: "lining")[#current]
   grid(
@@ -500,6 +503,31 @@
 // Markierung (==Text== -> <mark>): gelblicher Hintergrund.
 #set highlight(fill: rgb("#fbeab0"))
 
+// Externe Links (http://, https://, mailto:) sind im ausgedruckten PDF sonst
+// nicht als Verweis zu erkennen: Linktext fein unterstrichen, dahinter ein
+// kleines, angehobenes ↗ (U+2197 aus Source Sans 3, auch in Serif-Überschriften).
+// Bewusst ohne eigene Farbe (Textfarbe der Umgebung), damit Links im Text nicht
+// hervorstechen. Interne Links (#anker, Labels) bleiben unverändert.
+#let is-external(dest) = type(dest) == str and (
+  dest.starts-with("http://") or dest.starts-with("https://") or dest.starts-with("mailto:"))
+#let link-arrow = text(font: body-font, size: 0.75em, baseline: -0.33em, "↗")
+#show link: it => {
+  // Guard: der neu gebaute Link trägt <mdo-ext-link> und wird nicht erneut umgebaut.
+  if not is-external(it.dest) or (it.has("label") and it.label == <mdo-ext-link>) { return it }
+  // Das ↗ steht IM Link (klickbar, keine tote Lücke). Wortverbinder (wj)
+  // davor und danach: kein Umbruch zwischen Linktext und Symbol, und ein
+  // folgendes Satzzeichen bleibt am Symbol. Innerhalb des Linktexts darf
+  // weiter umbrochen werden.
+  [#link(it.dest, {
+    // Strich ohne Farbangabe: Typst nimmt die aktuelle Textfarbe.
+    underline(offset: 2pt, stroke: 0.4pt, it.body)
+    sym.wj
+    h(0.12em)
+    link-arrow
+    sym.wj
+  })<mdo-ext-link>]
+}
+
 // Blockzitate heben sich ab: schmaler als der Satzspiegel (beidseitig
 // eingerückt) und kursiv.
 #show quote.where(block: true): it => pad(left: 2em, right: 2em,
@@ -557,6 +585,9 @@
 // knapp über Fließtextgröße (Book, wght 450 – Default-Bold der H1 neutralisiert).
 #let toc-entry(body) = block(above: 0.55em, below: 0pt, {
   show strong: s => s.body
+  // Externe Links in Überschriften: im Verzeichnis schlichter Text, der
+  // Eintrag selbst bleibt der (interne) Sprung zum Kapitel.
+  show link: l => if is-external(l.dest) { l.body } else { l }
   set text(font: body-font, weight: weight-text, size: 11pt)
   body
 })

@@ -1,12 +1,12 @@
 # Markdown Office – Set `memo`
 
-**Version:** 26.10.0 · [English](README.en.md)
+**Version:** 26.10.2 · [English](README.en.md)
 
 > Das Standard-Vorlagen-Set von Markdown Office: das frühere rf-doc-Layout von real-fast-document.
 
 ## Beschreibung
 
-Ein Set besteht aus einer Typst-Vorlage, einem Editor-Stylesheet und einer Frontmatter-Vorlage. `memo` ist das Standard-Set: Titelblock, Inhaltsverzeichnis, Kopf- und Fußzeile, Hinweisboxen, Aufgabenlisten, Tabellen, Formeln und Diagramme. Markdown Office bringt dieses Set mit und verwendet es, wenn eine Notiz kein `template:` angibt.
+Ein Set besteht aus einer Typst-Vorlage, einem Editor-Stylesheet und einer Frontmatter-Vorlage. `memo` ist das Standard-Set: Titelblock, Inhaltsverzeichnis, Kopf- und Fußzeile, Hinweisboxen, Aufgabenlisten, Tabellen, Formeln und Diagramme. Externe Links (`http://`, `https://`, `mailto:`) erscheinen in der Textfarbe fein unterstrichen und mit einem kleinen ↗ dahinter, damit sie auch im Ausdruck als Verweis erkennbar sind; interne Links (`#anker`) bleiben schlicht. Markdown Office bringt dieses Set mit und verwendet es, wenn eine Notiz kein `template:` angibt.
 
 ## Dateien
 
