@@ -18,7 +18,7 @@ Ein Set besteht aus einer Typst-Vorlage, einem Editor-Stylesheet und einer Front
 
 ## Frontmatter-Schlüssel
 
-Alle Schlüssel mit Standardwerten und Beschreibung stehen in [`memo.header.md`](memo.header.md).
+Alle Schlüssel mit Standardwerten und je einer Kurzbeschreibung stehen in [`memo.header.md`](memo.header.md); ausführlich beschreibt sie das [README von Markdown Office](https://github.com/jcmx9/MarkdownOffice#frontmatter).
 
 ## Versionierung
 

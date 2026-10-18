@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [26.10.1] - 2026-10-18
+
+### Changed
+- `memo.header.md` is a compact template: one line per key with a short comment; the full description lives in the Markdown Office README
+
 ## [26.10.0] - 2026-10-17
 
 ### Added

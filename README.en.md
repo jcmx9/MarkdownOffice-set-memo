@@ -18,7 +18,7 @@ A set consists of a Typst template, an editor stylesheet and a frontmatter templ
 
 ## Frontmatter keys
 
-All keys with default values and descriptions are in [`memo.header.md`](memo.header.md).
+All keys with default values and a short description each are in [`memo.header.md`](memo.header.md); the [Markdown Office README](https://github.com/jcmx9/MarkdownOffice/blob/main/README.en.md#frontmatter) describes them in full.
 
 ## Versioning
 
