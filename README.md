@@ -20,6 +20,8 @@ Ein Set besteht aus einer Typst-Vorlage, einem Editor-Stylesheet und einer Front
 
 Alle Schlüssel mit Standardwerten und je einer Kurzbeschreibung stehen in [`memo.header.md`](memo.header.md); ausführlich beschreibt sie das [README von Markdown Office](https://github.com/jcmx9/MarkdownOffice#frontmatter).
 
+Die Datei [`memo.schema.yaml`](memo.schema.yaml) beschreibt die Schlüssel des Sets (Typen, erlaubte Werte, Grenzen). Markdown Office prüft damit eine Notiz über „YAML prüfen …“ (Bearbeiten-Menü) und `markdown-office validate`; zusätzliche Schlüssel bleiben erlaubt.
+
 ## Versionierung
 
 [CalVer](https://calver.org/) im Format `YY.M.MICRO`.

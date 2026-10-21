@@ -20,6 +20,8 @@ A set consists of a Typst template, an editor stylesheet and a frontmatter templ
 
 All keys with default values and a short description each are in [`memo.header.md`](memo.header.md); the [Markdown Office README](https://github.com/jcmx9/MarkdownOffice/blob/main/README.en.md#frontmatter) describes them in full.
 
+The file [`memo.schema.yaml`](memo.schema.yaml) describes the set's keys (types, allowed values, limits). Markdown Office uses it to check a note via „YAML prüfen …“ (Edit menu) and `markdown-office validate`; extra keys remain allowed.
+
 ## Versioning
 
 [CalVer](https://calver.org/) in the format `YY.M.MICRO`.
