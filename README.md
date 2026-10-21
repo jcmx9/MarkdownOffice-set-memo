@@ -1,6 +1,6 @@
 # Markdown Office – Set `memo`
 
-**Version:** 26.10.4 · [English](README.en.md)
+**Version:** 26.10.5 · [English](README.en.md)
 
 > Das Standard-Vorlagen-Set von Markdown Office: das frühere rf-doc-Layout von real-fast-document.
 
