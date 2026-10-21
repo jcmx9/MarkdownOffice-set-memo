@@ -22,6 +22,8 @@ All keys with default values and a short description each are in [`memo.header.m
 
 The file [`memo.schema.yaml`](memo.schema.yaml) describes the set's keys (types, allowed values, limits). Markdown Office uses it to check a note via „YAML prüfen …“ (Edit menu) and `markdown-office validate`; extra keys remain allowed.
 
+`lang:` may carry a region (`de-AT`, `en-GB`): labels and date follow the language (`de…` German, otherwise English), and the set passes the region to Typst separately.
+
 ## Versioning
 
 [CalVer](https://calver.org/) in the format `YY.M.MICRO`.

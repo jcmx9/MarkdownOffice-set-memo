@@ -1,6 +1,7 @@
 # memo reads only the keys the Markdown Office pipeline already describes (title, date, toc,
 # logo, lang, …), so it declares no keys of its own. The file exists so the YAML check
 # ("YAML prüfen …", `markdown-office validate`) knows the set was checked. `lang` is deliberately
-# not restricted: memo.typ takes the first two letters (de-AT, de-CH work) and falls back to English.
+# not restricted: memo.typ splits a regional code (de-AT → language de, region AT) before
+# `text(lang:)`, takes German labels and dates for de*, and English ones for anything else.
 schema: 1
 keys: {}

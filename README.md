@@ -22,6 +22,8 @@ Alle Schlüssel mit Standardwerten und je einer Kurzbeschreibung stehen in [`mem
 
 Die Datei [`memo.schema.yaml`](memo.schema.yaml) beschreibt die Schlüssel des Sets (Typen, erlaubte Werte, Grenzen). Markdown Office prüft damit eine Notiz über „YAML prüfen …“ (Bearbeiten-Menü) und `markdown-office validate`; zusätzliche Schlüssel bleiben erlaubt.
 
+`lang:` darf eine Region tragen (`de-AT`, `en-GB`): Beschriftungen und Datum richten sich nach der Sprache (`de…` deutsch, sonst englisch), die Region gibt das Set getrennt an Typst weiter.
+
 ## Versionierung
 
 [CalVer](https://calver.org/) im Format `YY.M.MICRO`.

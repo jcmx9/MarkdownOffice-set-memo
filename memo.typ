@@ -307,6 +307,12 @@
 // Dokumentsprache (einmal zentral; auch für die Datumslokalisierung genutzt)
 // ---------------------------------------------------------------------------
 #let doc-lang = sys.inputs.at("lang", default: "de")
+// lang: darf eine Region tragen (de-AT, en-GB). text(lang:) nimmt nur den
+// Sprachcode und bricht sonst den Export ab ("expected two or three letter
+// language code"); die Region (zwei Buchstaben) geht getrennt an region:.
+#let doc-lang-parts = doc-lang.split("-")
+#let doc-lang-code = doc-lang-parts.first()
+#let doc-region = doc-lang-parts.slice(1).find(p => p.len() == 2)
 
 // Beschriftungen je Sprache (de, sonst en).
 #let labels = (
@@ -437,7 +443,7 @@
 // Mediävalziffern im Fließtext und in Überschriften (Tabellen: Versalziffern
 // gleicher Breite, Code: neutral, Kopf/Fuß: Versalziffern).
 #set text(font: body-font, size: 10pt, weight: weight-text, number-type: "old-style",
-  lang: doc-lang, hyphenate: true, fill: luma(13%),
+  lang: doc-lang-code, region: doc-region, hyphenate: true, fill: luma(13%),
   costs: (orphan: 200%, widow: 200%, runt: 200%))
 #set par(justify: true, leading: 0.85em, spacing: 1.1em)
 
