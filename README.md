@@ -6,14 +6,15 @@
 
 ## Beschreibung
 
-Ein Set besteht aus einer Typst-Vorlage, einem Editor-Stylesheet und einer Frontmatter-Vorlage. `memo` ist das Standard-Set: Titelblock, Inhaltsverzeichnis, Kopf- und Fußzeile, Hinweisboxen, Aufgabenlisten, Tabellen, Formeln und Diagramme. Externe Links (`http://`, `https://`, `mailto:`) erscheinen in der Textfarbe fein unterstrichen und mit einem kleinen ↗ dahinter, damit sie auch im Ausdruck als Verweis erkennbar sind; interne Links (`#anker`) bleiben schlicht. Markdown Office bringt dieses Set mit und verwendet es, wenn eine Notiz kein `template:` angibt.
+Ein Set besteht aus einer Typst-Vorlage, einer Beschreibung der Editor-Vorschau (Stylesheet und Titelblock) und einer Frontmatter-Vorlage. `memo` ist das Standard-Set: Titelblock, Inhaltsverzeichnis, Kopf- und Fußzeile, Hinweisboxen, Aufgabenlisten, Tabellen, Formeln und Diagramme. Externe Links (`http://`, `https://`, `mailto:`) erscheinen in der Textfarbe fein unterstrichen und mit einem kleinen ↗ dahinter, damit sie auch im Ausdruck als Verweis erkennbar sind; interne Links (`#anker`) bleiben schlicht. Markdown Office bringt dieses Set mit und verwendet es, wenn eine Notiz kein `template:` angibt.
 
 ## Dateien
 
 | Datei | Zweck |
 |-------|-------|
 | `memo.typ` | Typst-Vorlage; liest `sys.inputs.mdo` (Wurzel der Pipeline) und `sys.inputs.version` |
-| `memo.css` | Editor-Stylesheet (nur Kommentare; Overrides über `--mdo-*` und `.mdo-*`) |
+| `memo.css` | Editor-Vorschau: die Werte von memo (Schrift, Größen, Satzbreite, Abstände) als `--mdo-*`-Variablen; keine Wirkung auf das PDF |
+| `memo.preview.yaml` | Editor-Vorschau: Titelblock (Obertitel, Titel, Untertitel, „Datum · Autor“ nur mit `author`) |
 | `memo.header.md` | Frontmatter-Vorlage mit allen Schlüsseln und Standardwerten (`template: memo`) |
 
 ## Frontmatter-Schlüssel

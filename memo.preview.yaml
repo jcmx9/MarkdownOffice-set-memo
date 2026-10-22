@@ -1,0 +1,15 @@
+# memo – head block of the editor preview (Markdown Office, TEMPLATES.md section 8).
+# Has no influence on the PDF. The title block as memo.typ prints it: toptitle, title,
+# subtitle and "date · author" (only with an author). No foot.
+preview: 1
+head:
+  - class: toptitle
+    text: "{toptitle}"
+  - class: title
+    text: "{title}"
+  - class: subtitle
+    text: "{subtitle}"
+  - class: meta
+    parts: ["{date}", "{author}"]
+    sep: " · "
+    when: "{author}"

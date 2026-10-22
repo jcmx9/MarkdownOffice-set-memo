@@ -6,14 +6,15 @@
 
 ## Description
 
-A set consists of a Typst template, an editor stylesheet and a frontmatter template. `memo` is the default set: title block, table of contents, header and footer, alert boxes, task lists, tables, formulas and diagrams. External links (`http://`, `https://`, `mailto:`) appear in the text colour, finely underlined and followed by a small ↗, so they remain recognisable as links on paper; internal links (`#anchor`) stay plain. Markdown Office bundles this set and uses it when a note does not specify `template:`.
+A set consists of a Typst template, a description of the editor preview (stylesheet and title block) and a frontmatter template. `memo` is the default set: title block, table of contents, header and footer, alert boxes, task lists, tables, formulas and diagrams. External links (`http://`, `https://`, `mailto:`) appear in the text colour, finely underlined and followed by a small ↗, so they remain recognisable as links on paper; internal links (`#anchor`) stay plain. Markdown Office bundles this set and uses it when a note does not specify `template:`.
 
 ## Files
 
 | File | Purpose |
 |------|---------|
 | `memo.typ` | Typst template; reads `sys.inputs.mdo` (pipeline root) and `sys.inputs.version` |
-| `memo.css` | Editor stylesheet (comments only; overrides via `--mdo-*` and `.mdo-*`) |
+| `memo.css` | Editor preview: memo's values (font, sizes, measure, spacing) as `--mdo-*` variables; no effect on the PDF |
+| `memo.preview.yaml` | Editor preview: title block (toptitle, title, subtitle, "date · author" only with `author`) |
 | `memo.header.md` | Frontmatter template with all keys and default values (`template: memo`) |
 
 ## Frontmatter keys

@@ -1,3 +1,46 @@
-/* Markdown Office – Set "memo": Stil-Overrides für den Editor.
-   Das Aussehen bringt der Editor selbst mit; dieses Set überschreibt es nur
-   über die Variablen --mdo-* und die Klassen .mdo-*. Aktuell keine Overrides. */
+/*
+ * memo – editor preview (Markdown Office, TEMPLATES.md section 8).
+ * Has no influence on the PDF. Declares memo's tokens explicitly; the values are the app's
+ * built-in defaults (taken from memo.typ), so the preview looks exactly as without this file.
+ * Lengths are print units; the app scales them with its zoom.
+ */
+
+.mdo-preview {
+  /* body: Source Sans 3 10pt, line height 1.5, justified */
+  --mdo-body-font: var(--mdo-font-sans);
+  --mdo-body-size: 10pt;
+  --mdo-body-weight: 400;
+  --mdo-bold-weight: 600;
+  --mdo-line-height: 1.5;
+  --mdo-align: justify;
+  /* the blank line between paragraphs carries the paragraph gap */
+  --mdo-par-gap: 1.1em;
+  /* text block: A4 210mm - margins 35mm + 30mm */
+  --mdo-measure: 145mm;
+  /* headings: Source Serif 4, flush left; H1 14pt with a hairline, H2 12pt, H3 10pt underlined */
+  --mdo-heading-font: var(--mdo-font-serif);
+  --mdo-heading-align: left;
+  --mdo-h1-font: var(--mdo-heading-font);
+  --mdo-h2-font: var(--mdo-heading-font);
+  --mdo-h3-font: var(--mdo-heading-font);
+  --mdo-h1-size: 14pt;
+  --mdo-h2-size: 12pt;
+  --mdo-h3-size: 10pt;
+  --mdo-h1-weight: 560;
+  --mdo-h2-weight: 560;
+  --mdo-h3-weight: 400;
+  --mdo-h1-color: var(--mdo-heading);
+  --mdo-h2-color: var(--mdo-heading);
+  --mdo-h3-color: var(--mdo-heading);
+  --mdo-h1-rule: var(--mdo-hairline);
+  --mdo-h3-decoration: underline;
+  /* tables: 9pt medium, slightly tighter tracking */
+  --mdo-table-font: var(--mdo-body-font);
+  --mdo-table-size: 9pt;
+  --mdo-table-weight: 500;
+  --mdo-table-tracking: -0.02em;
+  /* code blocks 9pt (inline code stays 0.9em of the surrounding text) */
+  --mdo-code-size: 9pt;
+  /* title block centred */
+  --mdo-titleblock-align: center;
+}
