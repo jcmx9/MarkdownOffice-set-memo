@@ -5,6 +5,8 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [26.10.6] - 2026-10-22
+
 ### Added
 - `memo.preview.yaml`: memo's title block (toptitle, title, subtitle, "date · author" only with an author) as a set preview description (Markdown Office TEMPLATES.md section 8)
 
