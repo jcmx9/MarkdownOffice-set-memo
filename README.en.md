@@ -38,8 +38,9 @@ With the Markdown Office version that sets paragraphs like Typst, the preview br
 | `--mdo-word-spacing: -0.045em` | approximation for the paragraph with the cursor and the fallback; Typst shrinks word spaces in justified text |
 | `--mdo-numeric: oldstyle-nums`, `--mdo-table-numeric: lining-nums tabular-nums` | `#set text(number-type: "old-style")`; tables: `number-type: "lining"`, `number-width: "tabular"` |
 | `--mdo-body-weight: 380`, `--mdo-bold-weight: 560`, `--mdo-measure: 145mm` | `#set text(weight: 380)` and `strong` +180; page 210 mm − 35 mm − 30 mm |
+| `mermaid:` in `memo.preview.yaml` | theme, layout, `max-height: 12cm` and `font-weight: 500` of the Mermaid rule (`memo.typ`, lines 622–649); the preview draws diagrams with the same mmdr plugin as the PDF |
 
-What still differs from the PDF: a Markdown line wrapped in the source is its own paragraph (write a paragraph on one line), there is no hanging punctuation, the paragraph with the cursor keeps the browser's wrapping, and code and tables stay raw. Page breaks, header and footer exist only in the PDF.
+The preview draws top-level Mermaid blocks as diagrams; inside lists and quotes, in the block with the cursor and in the code view the source stays (needs Markdown Office with diagrams in the preview). What still differs from the PDF: a Markdown line wrapped in the source is its own paragraph (write a paragraph on one line), there is no hanging punctuation, the paragraph with the cursor keeps the browser's wrapping, and code and tables stay raw. Page breaks, header and footer exist only in the PDF.
 
 ## Versioning
 

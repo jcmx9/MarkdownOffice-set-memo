@@ -38,8 +38,9 @@ Ab der Markdown-Office-Version mit Absatzsatz wie Typst bricht die Vorschau Zeil
 | `--mdo-word-spacing: -0.045em` | Näherung für den Absatz mit dem Cursor und den Ausweichfall; Typst staucht Wortzwischenräume im Blocksatz |
 | `--mdo-numeric: oldstyle-nums`, `--mdo-table-numeric: lining-nums tabular-nums` | `#set text(number-type: "old-style")`; Tabellen: `number-type: "lining"`, `number-width: "tabular"` |
 | `--mdo-body-weight: 380`, `--mdo-bold-weight: 560`, `--mdo-measure: 145mm` | `#set text(weight: 380)` und `strong` +180; Seite 210 mm − 35 mm − 30 mm |
+| `mermaid:` in `memo.preview.yaml` | Theme, Layout, `max-height: 12cm` und `font-weight: 500` der Mermaid-Regel (`memo.typ`, Zeilen 622–649); die Vorschau zeichnet Diagramme mit demselben mmdr-Plugin wie das PDF |
 
-Was vom PDF abweicht: Eine im Quelltext umbrochene Markdown-Zeile ist ein eigener Absatz (ein Absatz gehört in eine Zeile), hängende Satzzeichen gibt es nicht, der Absatz mit dem Cursor behält den Umbruch des Browsers, und Code und Tabellen bleiben roh. Seitenumbrüche, Kopf- und Fußzeile gibt es nur im PDF.
+Mermaid-Blöcke auf oberster Ebene zeichnet die Vorschau als Diagramm, innerhalb von Listen und Zitaten, im Block mit dem Cursor und in der Code-Ansicht bleibt der Quelltext (braucht Markdown Office mit Diagrammen in der Vorschau). Was vom PDF abweicht: Eine im Quelltext umbrochene Markdown-Zeile ist ein eigener Absatz (ein Absatz gehört in eine Zeile), hängende Satzzeichen gibt es nicht, der Absatz mit dem Cursor behält den Umbruch des Browsers, und Code und Tabellen bleiben roh. Seitenumbrüche, Kopf- und Fußzeile gibt es nur im PDF.
 
 ## Versionierung
 

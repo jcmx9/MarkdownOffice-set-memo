@@ -17,3 +17,30 @@ head:
 nobreak:
   words: ["z. B.", "u. a.", "d. h.", "u. Ä.", "o. Ä.", "u. U.", "z. T.", "i. d. R.", "s. o.", "s. u."]
   units: [pt, px, mm, cm, km, kg, mg, MB, GB, KB, TB, ms, dpi, ppi, "°C", "%", "€", "£", "$"]
+# mermaid: the arguments of the `mermaid-svg` call and its size rule in memo.typ, so the preview
+# draws a diagram like the PDF (TEMPLATES.md section 8.2). Source lines are of memo.typ.
+mermaid:
+  base-theme: modern          # memo.typ:648: base-theme: "modern"
+  max-height: 12cm            # memo.typ:622: mermaid-max-height
+  font-weight: 500            # memo.typ:649: .replace("font-family=", "font-weight=\"500\" font-family=")
+  layout:                     # memo.typ:625: mermaid-layout
+    node_spacing: 25
+    rank_spacing: 35
+  theme:                      # memo.typ:626-643: mermaid-theme
+    font_family: "SourceSans3VF"
+    primary_color: "#f4f2ee"
+    primary_text_color: "#2b2b2b"
+    primary_border_color: "#b9b2a6"
+    secondary_color: "#fbeab0"
+    tertiary_color: "#fdfcfa"
+    line_color: "#6b6b6b"
+    text_color: "#2b2b2b"
+    edge_label_background: "#ffffff"
+    cluster_background: "#fdfcfa"
+    cluster_border: "#e4e1dc"
+    background: "#ffffff"
+    sequence_actor_fill: "#f4f2ee"
+    sequence_actor_border: "#b9b2a6"
+    sequence_actor_line: "#b9b2a6"
+    sequence_note_fill: "#fbeab0"
+    sequence_note_border: "#e0c66a"
