@@ -1,6 +1,7 @@
 # memo – head block of the editor preview (Markdown Office, TEMPLATES.md section 8).
 # Has no influence on the PDF. The title block as memo.typ prints it: toptitle, title,
 # subtitle and "date · author" (only with an author). No foot.
+# nobreak: memo.typ's no-break spaces (abbreviations, number + unit) keep these together.
 preview: 1
 head:
   - class: toptitle
@@ -13,3 +14,6 @@ head:
     parts: ["{date}", "{author}"]
     sep: " · "
     when: "{author}"
+nobreak:
+  words: ["z. B.", "u. a.", "d. h.", "u. Ä.", "o. Ä.", "u. U.", "z. T.", "i. d. R.", "s. o.", "s. u."]
+  units: [pt, px, mm, cm, km, kg, mg, MB, GB, KB, TB, ms, dpi, ppi, "°C", "%", "€", "£", "$"]

@@ -1,7 +1,9 @@
 /*
  * memo – editor preview (Markdown Office, TEMPLATES.md section 8).
  * Has no influence on the PDF. Declares memo's tokens explicitly; the values are the app's
- * built-in defaults (taken from memo.typ), so the preview looks exactly as without this file.
+ * built-in defaults (taken from memo.typ, including its real weights 380/470/560), so the
+ * preview looks exactly as without this file. One exception: --mdo-word-spacing defaults to 0
+ * in the app and is memo's own (see below). The app derives each opsz from the pt sizes.
  * Lengths are print units; the app scales them with its zoom.
  */
 
@@ -9,10 +11,15 @@
   /* body: Source Sans 3 10pt, line height 1.5, justified */
   --mdo-body-font: var(--mdo-font-sans);
   --mdo-body-size: 10pt;
-  --mdo-body-weight: 400;
-  --mdo-bold-weight: 600;
+  /* memo.typ weight-text 380, strong +180; the line widths depend on the real weights */
+  --mdo-body-weight: 380;
+  --mdo-bold-weight: 560;
   --mdo-line-height: 1.5;
   --mdo-align: justify;
+  /* Typst shrinks word spaces down to 2/3 in justified lines, the browser cannot: a slightly
+     tighter space lets the same words fit a line (simulated best fit -0.04 to -0.05em). A
+     stand-in until the app sets paragraphs like Typst (Knuth-Plass); then it goes. */
+  --mdo-word-spacing: -0.045em;
   /* the blank line between paragraphs carries the paragraph gap */
   --mdo-par-gap: 1.1em;
   /* text block: A4 210mm - margins 35mm + 30mm */
@@ -26,9 +33,10 @@
   --mdo-h1-size: 14pt;
   --mdo-h2-size: 12pt;
   --mdo-h3-size: 10pt;
-  --mdo-h1-weight: 560;
-  --mdo-h2-weight: 560;
-  --mdo-h3-weight: 400;
+  /* memo.typ weight-heading 470, H3 at the text weight 380 */
+  --mdo-h1-weight: 470;
+  --mdo-h2-weight: 470;
+  --mdo-h3-weight: 380;
   --mdo-h1-color: var(--mdo-heading);
   --mdo-h2-color: var(--mdo-heading);
   --mdo-h3-color: var(--mdo-heading);
@@ -39,6 +47,10 @@
   --mdo-table-size: 9pt;
   --mdo-table-weight: 500;
   --mdo-table-tracking: -0.02em;
+  /* table header: table weight 500 + strong 180 */
+  --mdo-table-head-weight: 680;
+  /* lists: marker slot 0.72em + body-indent 0.4em; every line of an item starts there */
+  --mdo-list-indent: 1.12em;
   /* code blocks 9pt (inline code stays 0.9em of the surrounding text) */
   --mdo-code-size: 9pt;
   /* title block centred */

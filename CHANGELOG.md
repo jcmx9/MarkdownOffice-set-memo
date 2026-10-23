@@ -5,6 +5,12 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+- `memo.css`: the editor preview uses memo.typ's real weights (text 380, bold 560, headings 470, H3 380, table head 680) so lines are as wide as in the PDF; `--mdo-word-spacing: -0.045em` stands in for Typst's space shrinking in justified lines until the app sets paragraphs like Typst; `--mdo-list-indent: 1.12em` hangs every line of a list item like the PDF (needs Markdown Office with preview fidelity step 2)
+
+### Added
+- `memo.preview.yaml`: `nobreak:` lists memo.typ's no-break abbreviations (z. B., u. a., …) and units after a number, so the preview keeps them on one line like the PDF
+
 ## [26.10.6] - 2026-10-22
 
 ### Added
