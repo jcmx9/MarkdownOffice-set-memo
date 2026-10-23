@@ -25,6 +25,22 @@ The file [`memo.schema.yaml`](memo.schema.yaml) describes the set's keys (types,
 
 `lang:` may carry a region (`de-AT`, `en-GB`): labels and date follow the language (`de…` German, otherwise English), and the set passes the region to Typst separately.
 
+## Editor preview
+
+With the Markdown Office version that sets paragraphs like Typst, the preview breaks lines like the PDF: hyphenation with Typst's German and English patterns (language from `lang:`), the best breaks for the whole paragraph in justified text, and word spaces shrunk or stretched per line. `memo.css` states the values from `memo.typ` for it (section 8.5 of Markdown Office's TEMPLATES.md):
+
+| Value | Source |
+|-------|--------|
+| `--mdo-align: justify` | `#set par(justify: true)` |
+| `--mdo-hyphenate` (default `auto`: justified text hyphenates) | `#set text(hyphenate: true)` |
+| `--mdo-runt-cost: 200%` | `#set par(costs: (runt: 200%))` |
+| `--mdo-hyphenation-cost` (default `100%`) | not set, Typst's default |
+| `--mdo-word-spacing: -0.045em` | approximation for the paragraph with the cursor and the fallback; Typst shrinks word spaces in justified text |
+| `--mdo-numeric: oldstyle-nums`, `--mdo-table-numeric: lining-nums tabular-nums` | `#set text(number-type: "old-style")`; tables: `number-type: "lining"`, `number-width: "tabular"` |
+| `--mdo-body-weight: 380`, `--mdo-bold-weight: 560`, `--mdo-measure: 145mm` | `#set text(weight: 380)` and `strong` +180; page 210 mm − 35 mm − 30 mm |
+
+What still differs from the PDF: a Markdown line wrapped in the source is its own paragraph (write a paragraph on one line), there is no hanging punctuation, the paragraph with the cursor keeps the browser's wrapping, and code and tables stay raw. Page breaks, header and footer exist only in the PDF.
+
 ## Versioning
 
 [CalVer](https://calver.org/) in the format `YY.M.MICRO`.

@@ -2,8 +2,10 @@
  * memo – editor preview (Markdown Office, TEMPLATES.md section 8).
  * Has no influence on the PDF. Declares memo's tokens explicitly; the values are the app's
  * built-in defaults (taken from memo.typ, including its real weights 380/470/560), so the
- * preview looks exactly as without this file. One exception: --mdo-word-spacing defaults to 0
- * in the app and is memo's own (see below). The app derives each opsz from the pt sizes.
+ * preview looks exactly as without this file. Exceptions: --mdo-word-spacing defaults
+ * to 0 in the app and is memo's own, --mdo-runt-cost is memo.typ's 200%, and --mdo-numeric /
+ * --mdo-table-numeric default to normal in the app (see below).
+ * The app derives each opsz from the pt sizes.
  * Lengths are print units; the app scales them with its zoom.
  */
 
@@ -16,10 +18,16 @@
   --mdo-bold-weight: 560;
   --mdo-line-height: 1.5;
   --mdo-align: justify;
-  /* Typst shrinks word spaces down to 2/3 in justified lines, the browser cannot: a slightly
-     tighter space lets the same words fit a line (simulated best fit -0.04 to -0.05em). A
-     stand-in until the app sets paragraphs like Typst (Knuth-Plass); then it goes. */
+  /* memo.typ: par(costs: (runt: 200%)) */
+  --mdo-runt-cost: 200%;
+  /* The app now sets paragraphs like Typst (it shrinks word spaces itself); this offset only
+     applies to the paragraph with the cursor and to the fallback (simulated best fit -0.04 to
+     -0.05em). */
   --mdo-word-spacing: -0.045em;
+  /* memo.typ: text(number-type: "old-style") */
+  --mdo-numeric: oldstyle-nums;
+  /* memo.typ table-text: number-type lining, number-width tabular */
+  --mdo-table-numeric: lining-nums tabular-nums;
   /* the blank line between paragraphs carries the paragraph gap */
   --mdo-par-gap: 1.1em;
   /* text block: A4 210mm - margins 35mm + 30mm */

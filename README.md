@@ -25,6 +25,22 @@ Die Datei [`memo.schema.yaml`](memo.schema.yaml) beschreibt die Schlüssel des S
 
 `lang:` darf eine Region tragen (`de-AT`, `en-GB`): Beschriftungen und Datum richten sich nach der Sprache (`de…` deutsch, sonst englisch), die Region gibt das Set getrennt an Typst weiter.
 
+## Editor-Vorschau
+
+Ab der Markdown-Office-Version mit Absatzsatz wie Typst bricht die Vorschau Zeilen wie das PDF: Silbentrennung mit Typsts deutschen und englischen Mustern (Sprache aus `lang:`), beste Umbrüche für den ganzen Absatz im Blocksatz und gestauchte oder gedehnte Wortzwischenräume je Zeile. `memo.css` nennt dafür die Werte aus `memo.typ` (Abschnitt 8.5 der TEMPLATES.md von Markdown Office):
+
+| Wert | Quelle |
+|------|--------|
+| `--mdo-align: justify` | `#set par(justify: true)` |
+| `--mdo-hyphenate` (Standard `auto`: Blocksatz trennt) | `#set text(hyphenate: true)` |
+| `--mdo-runt-cost: 200%` | `#set par(costs: (runt: 200%))` |
+| `--mdo-hyphenation-cost` (Standard `100%`) | nicht gesetzt, Typst-Standard |
+| `--mdo-word-spacing: -0.045em` | Näherung für den Absatz mit dem Cursor und den Ausweichfall; Typst staucht Wortzwischenräume im Blocksatz |
+| `--mdo-numeric: oldstyle-nums`, `--mdo-table-numeric: lining-nums tabular-nums` | `#set text(number-type: "old-style")`; Tabellen: `number-type: "lining"`, `number-width: "tabular"` |
+| `--mdo-body-weight: 380`, `--mdo-bold-weight: 560`, `--mdo-measure: 145mm` | `#set text(weight: 380)` und `strong` +180; Seite 210 mm − 35 mm − 30 mm |
+
+Was vom PDF abweicht: Eine im Quelltext umbrochene Markdown-Zeile ist ein eigener Absatz (ein Absatz gehört in eine Zeile), hängende Satzzeichen gibt es nicht, der Absatz mit dem Cursor behält den Umbruch des Browsers, und Code und Tabellen bleiben roh. Seitenumbrüche, Kopf- und Fußzeile gibt es nur im PDF.
+
 ## Versionierung
 
 [CalVer](https://calver.org/) im Format `YY.M.MICRO`.

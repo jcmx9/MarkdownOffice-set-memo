@@ -5,6 +5,13 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+- `memo.css`: `--mdo-runt-cost: 200%` (memo.typ `par(costs: (runt: 200%))`) so the preview picks the same line breaks as the PDF; `--mdo-word-spacing` now only matters for the paragraph with the cursor and the fallback (needs Markdown Office with paragraphs set like Typst)
+
+### Added
+- `memo.css`: `--mdo-numeric: oldstyle-nums` and `--mdo-table-numeric: lining-nums tabular-nums` (memo.typ `number-type: "old-style"`, tables lining and tabular) so the preview sets figures like the PDF (needs Markdown Office with these tokens)
+- README: section „Editor-Vorschau“ / "Editor preview" with the preview values and their sources in `memo.typ`, and what still differs from the PDF
+
 ## [26.10.7] - 2026-10-23
 
 ### Changed
