@@ -5,6 +5,8 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [26.10.8] - 2026-10-23
+
 ### Changed
 - `memo.css`: `--mdo-runt-cost: 200%` (memo.typ `par(costs: (runt: 200%))`) so the preview picks the same line breaks as the PDF; `--mdo-word-spacing` now only matters for the paragraph with the cursor and the fallback (needs Markdown Office with paragraphs set like Typst)
 
