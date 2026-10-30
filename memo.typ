@@ -134,6 +134,9 @@
 //   sonst           -> Running Header mit dem aktiven H1-Kapitel; vor dem ersten
 //                      Kapitel der Titel (title:), falls gesetzt
 #let head-override = sys.inputs.at("header", default: "")
+// header: false (ohne Anführungszeichen): keine Kopfzeile, kein Logo, keine Linie; der
+// Text rückt nach oben (margin-top). Der Text "false" kommt als header an, nicht hier.
+#let head-off = sys.inputs.at("header_off", default: "false") == "true"
 // Optionales Wasserzeichen (Frontmatter watermark:): diagonal, gespreizt, fett,
 // auf unterster Ebene unter allen Elementen.
 #let watermark-text = sys.inputs.at("watermark", default: "")
@@ -233,7 +236,7 @@
 #let weight-heading = 470
 
 // Seitengeometrie (zentral, von Seite UND Header-Logik genutzt)
-#let margin-top = 35mm
+#let margin-top = if head-off { 20mm } else { 35mm }
 #let margin-bottom = 20mm
 #let margin-left = 35mm
 #let margin-right = 30mm
@@ -425,7 +428,7 @@
 #set page(
   paper: "a4",
   margin: (top: margin-top, bottom: margin-bottom, left: margin-left, right: margin-right),
-  header: doc-header,
+  header: if head-off { none } else { doc-header },
   header-ascent: 6mm,
   footer: doc-footer,
   footer-descent: 6mm,

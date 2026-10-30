@@ -10,7 +10,7 @@ isodate_praefix: true   # ISO-Datum vor dem Dateinamen
 lang: de                # de oder en
 toc: auto               # Inhaltsverzeichnis: auto, true, false
 h1_break: auto          # Kapitel auf neuer Seite: auto = wie toc
-header: ""              # fester Kopfzeilentext
+header: ""              # fester Kopfzeilentext; false: keine Kopfzeile
 print_filename: true    # Angabe links in der Fußzeile
 watermark: ""           # z. B. ENTWURF
 logo: ""                # .svg/.png/.jpg; leer: kein Logo

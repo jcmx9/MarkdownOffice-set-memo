@@ -5,6 +5,9 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+- `header: false` drops the header completely (input `header_off`): no header text, logo or rule, top margin 20 mm instead of 35 mm; the footer stays
+
 ## [26.10.10] - 2026-10-24
 
 ### Security
