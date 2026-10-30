@@ -5,6 +5,9 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+- `header: ""` shows logo and rule without text (input `header_blank`); `memo.header.md` now writes `header: auto`, the running header
+
 ## [26.10.11] - 2026-10-31
 
 ### Added

@@ -137,6 +137,8 @@
 // header: false (ohne Anführungszeichen): keine Kopfzeile, kein Logo, keine Linie; der
 // Text rückt nach oben (margin-top). Der Text "false" kommt als header an, nicht hier.
 #let head-off = sys.inputs.at("header_off", default: "false") == "true"
+// header: "" -> Logo und Linie ohne Text; auto oder kein Schlüssel -> Running Header.
+#let head-blank = sys.inputs.at("header_blank", default: "false") == "true"
 // Optionales Wasserzeichen (Frontmatter watermark:): diagonal, gespreizt, fett,
 // auf unterster Ebene unter allen Elementen.
 #let watermark-text = sys.inputs.at("watermark", default: "")
@@ -270,7 +272,9 @@
 // ---------------------------------------------------------------------------
 #let doc-header = context {
   let this-page = here().page()
-  let current = if head-override != "" {
+  let current = if head-blank {
+    []
+  } else if head-override != "" {
     // Fester Kopfzeilentext: auf allen Seiten (ab Seite 1).
     head-override
   } else {
