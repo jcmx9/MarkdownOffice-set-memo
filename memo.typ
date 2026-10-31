@@ -653,7 +653,7 @@
   width: 100%, above: 1.4em, below: 1.4em, breakable: false,
   {
     let svg = bytes(mermaid-svg(it.text, base-theme: "modern", theme: mermaid-theme, layout: mermaid-layout)
-      .replace("font-family=", "font-weight=\"500\" font-family="))
+      .replace(regex("<[^<>]*\bfont-family=[^<>]*>"), m => if m.text.contains("font-weight=") { m.text } else { m.text.replace("font-family=", "font-weight=\"500\" font-family=") }))
     // Proportional einpassen: höchstens Satzspiegelbreite und höchstens
     // mermaid-max-height hoch – ein senkrechter Ablauf füllt sonst eine Seite.
     align(center, layout(size => {
