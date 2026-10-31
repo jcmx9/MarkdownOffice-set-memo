@@ -5,6 +5,8 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [26.10.13] - 2026-10-31
+
 ### Fixed
 - A Mermaid `timeline` no longer stops the export: the font-weight rule skips tags that already have a weight
 
