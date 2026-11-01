@@ -5,6 +5,11 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [26.10.14] - 2026-11-01
+
+### Added
+- `profile:` in the header: a profile is optional and holds default values for empty fields
+
 ## [26.10.13] - 2026-10-31
 
 ### Fixed
